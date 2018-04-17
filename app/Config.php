@@ -10,7 +10,7 @@ class Config{
 	static function systemInfo()
 	{
 		return [
-			'version' => 'v1.0.bate',
+			'version' => 'v1.1.bate',
 		];
 	}
 
