@@ -105,7 +105,14 @@ class kami extends CheckAdmin
     {
         $id = $this->req->get('id');
         if ($id) {
-            if ($this->model()->from('kami')->where(array('fields' => 'id=?', 'values' => array($id)))->delete()) {
+            $kami = $this->model()->select()->from('kami')->where(array('fields' => 'id=?', 'values' => array($id)))->fetchRow();
+            if ($this->model()->from('kami')->where(array('fields' => 'id = ?', 'values' => array($id)))->delete()) {
+                if($kami && $kami['is_ste'] == 0){
+                    //减去库存
+                    $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($kami['gid'])))->fetchRow();
+                    $gdata['kuc'] = $goods['kuc'] - 1;
+                    $this->model()->from('goods')->updateSet($gdata)->where(array('fields' => 'id = ?', 'values' => array($goods['id'])))->update();
+                }
                 echo json_encode(array('status' => 1));
                 exit;
             }
