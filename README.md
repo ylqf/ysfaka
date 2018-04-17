@@ -11,6 +11,8 @@
 ### 更多详细内容及配置教程请访问：
 ## [程序详情](http://www.yunscx.com/cms/a/ysfaka.html)
 
+### BUG反馈、程序交流 QQ群：568679748
+
 ## 关于作者
 
 ```php
