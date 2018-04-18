@@ -28,13 +28,8 @@ $(function() {
                 // console.log('123123123')
 
         })
-    // ==========================
-    // 头部导航隐藏菜单
-    // ==========================
-        $('.tpl-header-nav-hover-ico').on('click', function() {
-            $('.tpl-left-nav').toggle();
-            $('.tpl-content-wrapper').toggleClass('tpl-content-wrapper-hover');
-        })
+
+
     // ==========================
     // 侧边导航下拉列表
     // ==========================

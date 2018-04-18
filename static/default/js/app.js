@@ -1,35 +1,32 @@
-$(function () {
-
-    $("#sc-cid").change(function () {
-        if ($("#sc-cid").val() == 0) return;
-        $.ajax({
-            url: '/index/typegd',
-            type: 'POST',
-            dataType: 'json',
-            data: {cid: $("#sc-cid").val()},
-            beforeSend: function () {
-                layer.load(1);
-                $('#glist').html();
-            },
-            success: function (result) {
-                if (result.status == '1') {
-                    $('#glist').html("<option value=\"0\">请选择商品</option>" + result.html);
-                    layer.closeAll();
-                } else {
-                    $('#glist').html("<option value=\"0\">该分类下没有商品</option>");
-                    layer.closeAll();
-                }
+$("#sc-cid").change(function () {
+    if ($("#sc-cid").val() == 0) return;
+    $.ajax({
+        url: '/index/typegd',
+        type: 'POST',
+        dataType: 'json',
+        data: {cid: $("#sc-cid").val()},
+        beforeSend: function () {
+            layer.load(1);
+            $('#glist').html();
+        },
+        success: function (result) {
+            if (result.status == '1') {
+                $('#glist').html("<option value=\"0\">请选择商品</option>" + result.html);
+                layer.closeAll();
+            } else {
+                $('#glist').html("<option value=\"0\">该分类下没有商品</option>");
+                layer.closeAll();
             }
+        }
 
-        });
-
-    });
-
-    $("select#glist").change(function () {
-        getGoodsInfo($(this).val())
     });
 
 });
+
+$("#glist").change(function () {
+    getGoodsInfo($(this).val())
+});
+
 
 //查询商品详情
 function getGoodsInfo(id) {
@@ -179,4 +176,12 @@ function orderInfo(id) {
 
         }
     });
+}
+// ==========================
+// 头部导航隐藏菜单
+// ==========================
+
+function navHover() {
+    $('.tpl-left-nav').toggle();
+    $('.tpl-content-wrapper').toggleClass('tpl-content-wrapper-hover');
 }

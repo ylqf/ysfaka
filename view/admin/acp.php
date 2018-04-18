@@ -49,6 +49,24 @@
                                     value="<?php echo $val['userkey']?>">
                                 </div>
                             </div>
+
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        状态
+                                    </span>
+                                    <select name="is_ste" class="form-control">
+                                        <option value="1"<?php echo $val['is_ste'] == '1' ? ' selected' : '' ?>>
+                                            启用
+                                        </option>
+                                        <option value="0"<?php echo $val['is_ste'] == '0' ? ' selected' : '' ?>>停用
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="input-group">
                                 <button type="submit" class="btn btn-success">
                                     &nbsp;
@@ -121,6 +139,23 @@
                     <input type="text" name="userkey" class="form-control" required>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">
+                    状态：
+                </label>
+                <div class="col-md-4">
+                    <select name="is_ste" class="form-control">
+                        <option value="1">
+                            启用
+                        </option>
+                        <option value="0">停用
+                        </option>
+
+                    </select>
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-4">
                     <button type="submit" class="btn btn-success">

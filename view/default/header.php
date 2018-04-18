@@ -14,13 +14,6 @@
     <link rel="stylesheet" href="/static/default/assets/css/amazeui.min.css" />
     <link rel="stylesheet" href="/static/default/assets/css/admin.css">
     <link rel="stylesheet" href="/static/default/assets/css/app.css">
-    <link rel="stylesheet" href="/static/common/layui/css/layui.css">
-    <script src="/static/default/assets/js/jquery.min.js"></script>
-    <script src="/static/common/layer/layer.js" type="text/javascript"></script>
-    <script src="/static/common/layui/layui.js"></script>
-    <script src="/static/default/assets/js/amazeui.min.js" type="text/javascript"></script>
-    <script src="/static/default/assets/js/app.js"></script>
-    <script src="/static/default/js/app.js"></script>
 
 </head>
 <header class="am-topbar am-topbar-inverse admin-header">
@@ -32,13 +25,11 @@
         </div>
 
     </div>
-    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right" onclick="navHover()">
 
     </div>
 
-    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
-            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
-                class="am-icon-bars"></span></button>
+
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
