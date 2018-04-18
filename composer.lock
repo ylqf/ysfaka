@@ -1,0 +1,53 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e627abbabe1c0ed165defd3390ac6ae6",
+    "packages": [
+        {
+            "name": "musnow/alipayf2f",
+            "version": "V1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/musnow/alipayf2f.git",
+                "reference": "418174544a5c2414302fe7e4f8738750dbe39cee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/musnow/alipayf2f/418174544a5c2414302fe7e4f8738750dbe39cee.zip",
+                "reference": "418174544a5c2414302fe7e4f8738750dbe39cee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Musnow\\AlipayF2F\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "musnow",
+                    "email": "me@yubanmei.com"
+                }
+            ],
+            "time": "2018-04-16T15:55:01+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

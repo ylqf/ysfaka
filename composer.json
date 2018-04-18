@@ -1,0 +1,5 @@
+{
+    "require": {
+        "musnow/alipayf2f": "^1.0"
+    }
+}

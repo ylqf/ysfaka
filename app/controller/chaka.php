@@ -8,7 +8,10 @@ class chaka extends Controller
 {
     public function index()
     {
-        $this->put('chaka.php');
+        $oid = $this->req->get('oid');
+        $order = $this->model()->select()->from('orders')->where(array('fields' => 'orderid=?', 'values' => array($oid)))->fetchRow();
+
+        $this->put('chaka.php',$order);
     }
 
     /**
@@ -75,11 +78,17 @@ class chaka extends Controller
 
     }
 
+    /**
+     * 订单详情
+     */
     public function orderInfo()
     {
+
         $id = $this->req->post('id') ? $this->req->post('id') : 0;
         $data = $this->model()->select()->from('orders')->where(array('fields' => 'orderid=?', 'values' => array($id)))->fetchRow();
         if (!$data) resMsg(0, null, '订单不存在');
         resMsg(1, $data, 'ok');
+
+
     }
 }

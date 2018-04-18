@@ -6,7 +6,6 @@ if (!file_exists(__DIR__ . '/install/install.lock'))
     exit;
 }
 
-
 require_once 'app/init.php';
 use YS\app\ysapp;
 $app = ysapp::getInstance();

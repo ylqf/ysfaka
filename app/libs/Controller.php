@@ -28,6 +28,7 @@ class Controller
         $this->action = $this->router->put();
         $this->setConfig = new Config();
         $this->verifyUser = new Verifyuser();
+        $this->urlbase =  strcasecmp($_SERVER['HTTPS'],"ON")==0?"https://":"http://";
     }
     public function model()
     {

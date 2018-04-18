@@ -123,7 +123,49 @@
 
                             <tbody id="ordcont">
 
+                            <?php if($orderid):?>
+                                <tr>
+                                    <td><?php echo $orderid ?></td>
+                                    <td><?php echo $oname ?></td>
+                                    <td>
+                                        <?php if ($otype == 0): ?>
+                                        <span class="am-badge am-badge-success am-radius">自动发卡</span>
+                                        <?php else: ?>
+                                            <span class="am-badge am-badge-warning am-radius">手工订单</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="am-hide-sm-only"><?php echo $onum ?></td>
+                                    <td class="am-hide-sm-only"><?php echo $omoney ?></td>
+                                    <td class="am-hide-sm-only"><?php echo $cmoney ?></td>
+                                    <td class="am-hide-sm-only"><?php echo $account ?></td>
+                                    <td>
 
+                                        <span class="am-badge am-badge-success am-radius"><?php echo $paytype ?></span>
+                                    </td>
+                                    <?php
+                                    $orderStatus = [
+                                        1 => "<span class=\"am-badge am-badge-warning am-radius\">待处理</span>",
+                                        2 => " <span class=\"am-badge am-badge-primary am-radius\">已处理</span>",
+                                        3 => " <span class=\"am-badge am-badge-success am-radius\">已完成</span>",
+                                        4 => " <span class=\"am-badge am-badge-danger am-radius\">处理失败</span>",
+                                        5 => " <span class=\"am-badge am-badge-danger am-radius\">发卡失败</span>",
+                                    ];
+
+                                    ?>
+
+                                    <td> <?php echo $orderStatus[$status] ?></td>
+                                    <td class="am-hide-sm-only"><?php echo date('Y-m-d H:i',$ctime)  ?></td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button onclick="orderInfo('<?php echo $orderid ?>')" class="am-btn am-btn-default "><span class="am-icon-eye"></span>订单详情
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            <?php endif;?>
                             </tbody>
 
 

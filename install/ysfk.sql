@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-16 21:38:02
+Date: 2018-04-18 19:51:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,16 +24,19 @@ CREATE TABLE `ys_acp` (
   `code` varchar(20) NOT NULL,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL DEFAULT '',
-  `userid` varchar(20) NOT NULL,
+  `userid` varchar(300) NOT NULL,
   `userkey` varchar(300) NOT NULL,
+  `is_ste` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否启用 1是 0否',
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_acp
 -- ----------------------------
-INSERT INTO `ys_acp` VALUES ('37', 'blpay', 'bl云支付', '', '', '');
+INSERT INTO `ys_acp` VALUES ('37', 'blpay', 'bl云支付', '', '', '', '0');
+INSERT INTO `ys_acp` VALUES ('38', 'zfbf2f', '支付宝当面付', '', '1', '1', '1');
+INSERT INTO `ys_acp` VALUES ('39', 'paysapi', 'PaysApi支付', '', '', '', '1');
 
 -- ----------------------------
 -- Table structure for ys_admin
@@ -67,7 +70,7 @@ CREATE TABLE `ys_adminlogs` (
   `ip` varchar(16) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `adminid` (`adminid`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_adminlogs
@@ -118,8 +121,6 @@ CREATE TABLE `ys_gdclass` (
 -- ----------------------------
 -- Records of ys_gdclass
 -- ----------------------------
-INSERT INTO `ys_gdclass` VALUES ('7', '测试手工商品分类', '0');
-INSERT INTO `ys_gdclass` VALUES ('6', '测试自动发卡商品分类', '1');
 
 -- ----------------------------
 -- Table structure for ys_goods
@@ -144,12 +145,6 @@ CREATE TABLE `ys_goods` (
 -- ----------------------------
 -- Records of ys_goods
 -- ----------------------------
-INSERT INTO `ys_goods` VALUES ('13', '7', '手工商品1', '0.10', '1', '1', '<h3>\r\n	这里是商品详情\r\n</h3>\r\n<p>\r\n	后台可自定义\r\n</p>\r\n<p>\r\n	<img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" style=\"white-space:normal;\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" style=\"white-space:normal;\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" style=\"white-space:normal;\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" style=\"white-space:normal;\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" style=\"white-space:normal;\" /> \r\n</p>', 'QQ号', '', '5', '1', '100');
-INSERT INTO `ys_goods` VALUES ('14', '7', '手工商品多输入框1', '0.10', '1', '1', '<span style=\"white-space:nowrap;\">手工商品多输入框1</span>', 'QQ号', '密码', '4', '1', '100');
-INSERT INTO `ys_goods` VALUES ('15', '7', '手工商品多输入框2', '0.10', '1', '1', '<span style=\"white-space:nowrap;\">手工商品多输入框2</span><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/0.gif\" border=\"0\" alt=\"\" />', 'QQ号', '密码,大区', '3', '1', '100');
-INSERT INTO `ys_goods` VALUES ('16', '7', '手工商品多输入框3', '0.10', '1', '1', '<span style=\"white-space:nowrap;\">手工商品多输入框3</span>', 'QQ号', '密码,大区,id', '2', '1', '100');
-INSERT INTO `ys_goods` VALUES ('17', '7', '手工商品多输入框且不允许重复下单', '0.10', '1', '0', '<h1>\r\n	<span style=\"white-space:nowrap;\">手工商品多输入框且不允许重复下单</span><br />\r\n</h1>', 'QQ号', 'ID,PASSWD,密码,大区', '1', '1', '100');
-INSERT INTO `ys_goods` VALUES ('18', '6', '自动发卡商品', '0.10', '0', '1', '<p>\r\n	<span style=\"white-space:nowrap;\">自动发卡商品</span><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" /><img src=\"http://www.faka.com/view/editor/plugins/emoticons/images/13.gif\" border=\"0\" alt=\"\" /> \r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src=\"/upload/image/20180416/20180416082402_34301.jpg\" alt=\"\" /> \r\n</p>', 'QQ号', '', '0', '1', '50');
 
 -- ----------------------------
 -- Table structure for ys_kami
@@ -168,60 +163,6 @@ CREATE TABLE `ys_kami` (
 -- ----------------------------
 -- Records of ys_kami
 -- ----------------------------
-INSERT INTO `ys_kami` VALUES ('153', '18', '123233', '444444', '1', '1523867081');
-INSERT INTO `ys_kami` VALUES ('152', '18', '123321', '123321', '1', '1523867081');
-INSERT INTO `ys_kami` VALUES ('151', '18', '123321', '123321', '1', '1523867081');
-INSERT INTO `ys_kami` VALUES ('150', '18', '123233', '444444', '1', '1523867081');
-INSERT INTO `ys_kami` VALUES ('154', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('155', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('156', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('157', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('158', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('159', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('160', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('161', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('162', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('163', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('164', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('165', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('166', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('167', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('168', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('169', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('170', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('171', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('172', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('173', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('174', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('175', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('176', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('177', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('178', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('179', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('180', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('181', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('182', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('183', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('184', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('185', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('186', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('187', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('188', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('189', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('190', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('191', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('192', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('193', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('194', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('195', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('196', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('197', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('198', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('199', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('200', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('201', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('202', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('203', '18', '123321', '123321', '0', '1523867081');
 
 -- ----------------------------
 -- Table structure for ys_mailtpl
@@ -280,14 +221,8 @@ CREATE TABLE `ys_orders` (
   `ctime` int(100) NOT NULL COMMENT '下单日期',
   `status` tinyint(1) NOT NULL COMMENT '0待付款 1待处理 2已处理 3已完成  4处理失败 5发卡失败',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=223 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_orders
 -- ----------------------------
-INSERT INTO `ys_orders` VALUES ('195', 'ys2018041616271791116', '手工商品1x1', '13', '0.10', '0.10', '1', null, '123321', '1', 'QQ号:123321', '2018041616271897678', '手Q扫码', '1523867237', '3');
-INSERT INTO `ys_orders` VALUES ('196', 'ys2018041616302074378', '手工商品多输入框1x1', '14', '0.10', '0.10', '1', null, '123321', '1', 'QQ号:123321<br/> 密码:123321', '2018041616302182926', '手Q扫码', '1523867420', '3');
-INSERT INTO `ys_orders` VALUES ('197', 'ys2018041616312044661', '手工商品多输入框2x1', '15', '0.10', '0.10', '1', null, '123321', '1', 'QQ号:123321<br/> 密码:123321<br/> 大区:123321', '2018041616312025841', '手Q扫码', '1523867480', '3');
-INSERT INTO `ys_orders` VALUES ('198', 'ys2018041616334248193', '手工商品多输入框3x1', '16', '0.10', '0.10', '1', null, '123321', '1', 'QQ号:123321<br/> 密码:123<br/> 大区:123<br/> id:123', '2018041616334693637', '手Q扫码', '1523867622', '3');
-INSERT INTO `ys_orders` VALUES ('199', 'ys2018041616345121266', '手工商品多输入框且不允许重复下单x1', '17', '0.10', '0.10', '1', null, '123321', '1', 'QQ号:123321<br/> ID:123321<br/> PASSWD:123321<br/> 密码:123321<br/> 大区:123321', '2018041616345379810', '手Q扫码', '1523867691', '3');
-INSERT INTO `ys_orders` VALUES ('200', 'ys2018041616373794565', '自动发卡商品x3', '18', '0.10', '0.30', '3', 'zxc123', '53331323@qq.com', '0', '卡号： 123321 ---- 卡密： 123321<br/>卡号： 123321 ---- 卡密： 123321<br/>卡号： 123233 ---- 卡密： 444444<br/>', '2018041616373892665', '手Q扫码', '1523867857', '3');

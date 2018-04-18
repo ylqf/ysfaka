@@ -1,0 +1,39 @@
+[
+    {
+        "name": "musnow/alipayf2f",
+        "version": "V1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/musnow/alipayf2f.git",
+            "reference": "418174544a5c2414302fe7e4f8738750dbe39cee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/musnow/alipayf2f/418174544a5c2414302fe7e4f8738750dbe39cee.zip",
+            "reference": "418174544a5c2414302fe7e4f8738750dbe39cee",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5"
+        },
+        "time": "2018-04-16T15:55:01+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Musnow\\AlipayF2F\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "musnow",
+                "email": "me@yubanmei.com"
+            }
+        ]
+    }
+]

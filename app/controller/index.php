@@ -143,14 +143,36 @@ class index extends Controller
                 <div class=\"am-alert am-alert-success\"><strong>订单保存成功，请点击以下方式在线付款：</strong></div>
                 </div>
                 <div class=\"am-form-group\">
-                <div class=\"am-u-sm-12 am-u-sm-push-2\">
-                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=alipay&paycode=blpay\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝</a>
-                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=wxpay&paycode=blpay\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信</a>
-                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=qqpay&paycode=blpay\" class=\"am-btn am-btn-default am-round am-icon-qq\">QQ钱包</a>
-                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=tenpay&paycode=blpay\" class=\"am-btn am-btn-primary am-round am-icon-credit-card\">财付通</a>
-                </div>         
-            </div>
-                ";
+                <div class=\"am-u-sm-12 am-u-sm-push-2\">";
+        /**
+         * 支付方式选择
+         */
+        $payset = $this->model()->select()->from('acp')->where(array('fields' => ' is_ste > 0', 'values' => array()))->fetchAll();
+
+        if($payset){
+            foreach ($payset as $v){
+                switch ($v['code']){
+                    case 'blpay':
+                        $html.= " <a target='_blank' href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">BL支付宝</a>
+                    <a  href=\"/pay/index?id=".$orderid."&type=wxpay&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">BL微信</a>
+                    <a  href=\"/pay/index?id=".$orderid."&type=qqpay&paycode=".$v['code']."\" class=\"am-btn am-btn-default am-round am-icon-qq\">BLQQ钱包</a>
+                    <a  href=\"/pay/index?id=".$orderid."&type=tenpay&paycode=".$v['code']."\" class=\"am-btn am-btn-primary am-round am-icon-credit-card\">BL财付通</a>";
+                        break;
+                    case 'zfbf2f':
+                        $html.= "<a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝当面付</a>";
+                        break;
+                    case 'paysapi':
+                        $html.= "<a  href=\"/pay/index?id=".$orderid."&type=1&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝扫码</a>
+                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=2&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信扫码</a>";
+                        break;
+                }
+            }
+        }
+        $html.= "</div>         
+            </div>";
+
+
+
         resMsg(1,$html,'下单成，请支付！');
 
     }
