@@ -21,7 +21,7 @@ class index extends Controller
         $day1 = date('Y-m-d');
         $day2 = $this->config['ctime'];
         $data['ctime'] = diffBetweenTwoDays($day1, $day2);
-        $class = $this->model()->select()->from('gdclass')->fetchAll();
+        $class = $this->model()->select()->from('gdclass')->orderby('ord DESC')->fetchAll();
         $data = [
             'class' => $class,
             'data' => $data
