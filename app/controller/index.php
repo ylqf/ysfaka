@@ -165,6 +165,9 @@ class index extends Controller
                         $html.= "<a  href=\"/pay/index?id=".$orderid."&type=1&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝扫码</a>
                     <a target='_blank' href=\"/pay/index?id=".$orderid."&type=2&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信扫码</a>";
                         break;
+                    case 'alipay':
+                        $html.= "<a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝即时到账</a>";
+                        break;
                 }
             }
         }

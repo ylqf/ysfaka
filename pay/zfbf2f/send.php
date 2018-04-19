@@ -1,7 +1,10 @@
 <?php
 require_once '../inc.php';
 
-use \Musnow\AlipayF2F\Pay;
+use Payment\Client\Charge;
+use Payment\Common\PayException;
+use Payment\Config;
+
 $orderid = $payDao->req->get('orderid');
 
 //查询订单是否存在
@@ -9,24 +12,27 @@ $order = $payDao->checkOrder($orderid);
 $payconf = $payDao->checkAcp('zfbf2f');
 
 $config = [
-    'appId' => $payconf['userid'],    //应用appid
-    'notifyUrl' => $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/pay/zfbf2f/notify.php',                      //异步通知地址
-
-    //应用私钥
-    // ！！！注意：如果是文件方式，文件中只保留字符串，不要留下 -----BEGIN RSA PRIVATE KEY----- 这种标记
-    'rsaPrivateKey' => $payconf['userkey']
+    'use_sandbox' => false,
+    'app_id' => $payconf['email'],    //应用appid
+    'sign_type' => 'RSA2',
+    'ali_public_key' => $payconf['userid'],
+    'rsa_private_key' => $payconf['userkey'],
+    'notify_url' => $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/pay/zfbf2f/notify.php',                      //异步通知地址
+    'return_url	' =>  $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/chaka?oid='.$order['orderid'],
+    'return_raw' => true
 ];
-$alipay = new Pay($config);
 
 $data = [
-    'outTradeNo' => $order['orderid'],     //商户订单号，需要保证唯一
-    'totalFee' => $order['cmoney'],           //订单金额，单位 元
-    'orderName' => $order['oname'],      //订单标题
+    'order_no' => $order['orderid'],     //商户订单号，需要保证唯一
+    'amount' => $order['cmoney'],           //订单金额，单位 元
+    'subject' => $order['oname'],      //订单标题
+    'body' => '当面付',      //订单标题
 ];
-$ret = $alipay->qrPay($data);     //扫码支付
-$paydata = json_decode($ret,true);
-if($paydata['alipay_trade_precreate_response']['code'] != 10000){
-    exit('当面付支付配置参数错误！');
+try {
+    $str = Charge::run(Config::ALI_CHANNEL_QR, $config, $data);
+} catch (PayException $e) {
+    echo $e->errorMessage();
+    exit;
 }
 
 
@@ -370,7 +376,7 @@ if($paydata['alipay_trade_precreate_response']['code'] != 10000){
         <div class="amount">￥<?php echo $order['cmoney']; ?></div>
         <div class="qr-image" id="" title="">
             <canvas width="230" height="230" style="display: none;"></canvas>
-            <img src="http://qr.liantu.com/api.php?text=<?php echo $paydata['alipay_trade_precreate_response']['qr_code']; ?>" title="请使用支付宝“扫一扫”" style=""></div>
+            <img src="http://qr.liantu.com/api.php?text=<?php echo $str; ?>" title="请使用支付宝“扫一扫”" style=""></div>
 
         <div class="detail" id="orderDetail">
             <dl class="detail-ct" style="display: block;" >

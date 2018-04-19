@@ -46,7 +46,7 @@ table.table>tbody>tr>td{font-size:12px;border-bottom: 1px solid #ddd}
 #main .left-nav dl dd a{display:block;line-height: 30px;padding-left:22px;color:#6B6D6E}
 #main .left-nav dl dd a:hover{color:#E43D40}
 #main .left-nav dl dd.current a{color:#E43D40}
-#main .right-content{min-height: 1100px;background: #fff;padding:20px 50px}
+#main .right-content{min-height: 1100px;background: #fff;padding:40px 50px}
 #main>.container-fluid>.row{padding:0;}
 #main>.container-fluid>.row>div{padding:0;}
 

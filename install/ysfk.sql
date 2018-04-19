@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-18 19:51:35
+Date: 2018-04-19 17:39:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,20 +23,21 @@ CREATE TABLE `ys_acp` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(20) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL DEFAULT '',
-  `userid` varchar(300) NOT NULL,
-  `userkey` varchar(300) NOT NULL,
+  `email` varchar(300) NOT NULL DEFAULT '',
+  `userid` text NOT NULL,
+  `userkey` text NOT NULL,
   `is_ste` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否启用 1是 0否',
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_acp
 -- ----------------------------
 INSERT INTO `ys_acp` VALUES ('37', 'blpay', 'bl云支付', '', '', '', '0');
-INSERT INTO `ys_acp` VALUES ('38', 'zfbf2f', '支付宝当面付', '', '1', '1', '1');
-INSERT INTO `ys_acp` VALUES ('39', 'paysapi', 'PaysApi支付', '', '', '', '1');
+INSERT INTO `ys_acp` VALUES ('38', 'zfbf2f', '支付宝当面付', '', '', '', '1');
+INSERT INTO `ys_acp` VALUES ('39', 'paysapi', 'PaysApi支付', '', '', '', '0');
+INSERT INTO `ys_acp` VALUES ('40', 'alipay', '支付宝即时到账', '', '', '', '1');
 
 -- ----------------------------
 -- Table structure for ys_admin
@@ -70,7 +71,7 @@ CREATE TABLE `ys_adminlogs` (
   `ip` varchar(16) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `adminid` (`adminid`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_adminlogs
@@ -121,6 +122,8 @@ CREATE TABLE `ys_gdclass` (
 -- ----------------------------
 -- Records of ys_gdclass
 -- ----------------------------
+INSERT INTO `ys_gdclass` VALUES ('7', '测试手工商品分类', '0');
+INSERT INTO `ys_gdclass` VALUES ('6', '测试自动发卡商品分类', '1');
 
 -- ----------------------------
 -- Table structure for ys_goods
@@ -221,7 +224,7 @@ CREATE TABLE `ys_orders` (
   `ctime` int(100) NOT NULL COMMENT '下单日期',
   `status` tinyint(1) NOT NULL COMMENT '0待付款 1待处理 2已处理 3已完成  4处理失败 5发卡失败',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=223 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=237 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_orders

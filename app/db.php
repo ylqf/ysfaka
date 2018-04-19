@@ -4,8 +4,9 @@
     'port'=>'3306',
     'user'=>'root',
     'pass'=>'root',
-    'name'=>'testfk',
+    'name'=>'faka',
     'prefix'=>'ys_',
     'driver'=>'pdo',
     'debug'=>true,
+    'serive_token' => 'ysfk2018'  //系统清理token
 ];

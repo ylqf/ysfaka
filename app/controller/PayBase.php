@@ -34,8 +34,7 @@ class PayBase extends Controller
 
     public function updateOrder($orderid,$type,$paysid)
     {
-        //查询订单是否已更改
-        $order = $this->model()->select()->from('orders')->where(array('fields' => 'orderid=? ', 'values' => array($orderid)))->fetchRow();
+        $order = $this->checkOrder($orderid);
         if($order['status'] > 0) return true;
         $data['status'] = 1;
         $data['payid'] = $paysid;
