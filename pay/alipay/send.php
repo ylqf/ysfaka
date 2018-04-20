@@ -25,7 +25,7 @@ $data = [
     'order_no' => $order['orderid'],     //商户订单号，需要保证唯一
     'amount' => $order['cmoney'],           //订单金额，单位 元
     'subject' => $order['oname'],      //订单标题
-    'body' => '支付宝及时到账',      //订单标题
+    'body' => 'alipay',      //订单标题
 ];
 try {
     $str = Charge::run(Config::ALI_CHANNEL_WEB, $config, $data);
