@@ -18,6 +18,7 @@ $config = [
     'ali_public_key' => $payconf['userid'],
     'rsa_private_key' => $payconf['userkey'],
     'notify_url' => $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/pay/zfbf2f/notify.php',                      //异步通知地址
+    'return_url' =>  $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/chaka?oid='.$order['orderid'],
     'return_raw' => true
 ];
 
