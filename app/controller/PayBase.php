@@ -34,7 +34,7 @@ class PayBase extends Controller
 
     public function updateOrder($orderid,$type,$paysid)
     {
-        $order = $this->checkOrder($orderid);
+        $order = $this->checkOrder($orderid,2);
         if($order['status'] > 0) return true;
         $data['status'] = 1;
         $data['payid'] = $paysid;
