@@ -122,8 +122,7 @@ CREATE TABLE `ys_gdclass` (
 -- ----------------------------
 -- Records of ys_gdclass
 -- ----------------------------
-INSERT INTO `ys_gdclass` VALUES ('7', '测试手工商品分类', '0');
-INSERT INTO `ys_gdclass` VALUES ('6', '测试自动发卡商品分类', '1');
+
 
 -- ----------------------------
 -- Table structure for ys_goods
