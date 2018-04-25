@@ -152,11 +152,10 @@ class index extends Controller
         if($payset){
             foreach ($payset as $v){
                 switch ($v['code']){
-                    case 'blpay':
-                        $html.= " <a target='_blank' href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">BL支付宝</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=wxpay&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">BL微信</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=qqpay&paycode=".$v['code']."\" class=\"am-btn am-btn-default am-round am-icon-qq\">BLQQ钱包</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=tenpay&paycode=".$v['code']."\" class=\"am-btn am-btn-primary am-round am-icon-credit-card\">BL财付通</a>";
+                    case 'yszf':
+                        $html.= " <a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝</a>
+                    <a  href=\"/pay/index?id=".$orderid."&type=wxpay&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信支付</a>
+                    <a  href=\"/pay/index?id=".$orderid."&type=qqpay&paycode=".$v['code']."\" class=\"am-btn am-btn-default am-round am-icon-qq\">QQ支付</a>";
                         break;
                     case 'zfbf2f':
                         $html.= "<a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝当面付</a>";
