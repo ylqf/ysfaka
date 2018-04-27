@@ -1,5 +1,9 @@
 <?php require_once 'header.php' ?>
 
+<style type="text/css">
+
+
+</style>
 
 <div class="tpl-page-container tpl-page-header-fixed">
 
@@ -54,7 +58,6 @@
         </div>
 
 
-
         <div class="tpl-portlet-components">
             <div class="portlet-title">
                 <div class="caption font-green bold">
@@ -68,54 +71,52 @@
             </div>
             <div class="tpl-block">
                 <div class="am-g">
-
-
                     <div class="am-u-sm-12 am-u-md-6">
                         <div class="am-btn-toolbar">
 
                         </div>
                     </div>
 
-                        <div class="am-u-sm-12 am-u-md-3">
-                            <div class="am-form-group">
-                                <select id="otype" name="status" data-am-selected="{btnSize: 'sm'}">
-                                    <option value="0">自动发卡</option>
-                                    <option value="1">手工订单</option>
-                                </select>
-                            </div>
-
+                    <div class="am-u-sm-12 am-u-md-3">
+                        <div class="am-form-group">
+                            <select id="otype" name="status" data-am-selected="{btnSize: 'sm'}">
+                                <option value="0">自动发卡</option>
+                                <option value="1">手工订单</option>
+                            </select>
                         </div>
 
+                    </div>
 
 
-                        <div class="am-u-sm-12 am-u-md-3">
-                            <div class="am-input-group am-input-group-sm">
-                                <input type="text" id="account" name="account" value="" placeholder="充值账号搜索" required
-                                       class="am-form-field">
-                                <span class="am-input-group-btn">
-            <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" onclick="getOrders()"
+                    <div class="am-u-sm-12 am-u-md-3">
+                        <div class="am-input-group am-input-group-sm">
+                            <input type="text" id="account" name="account" value="" placeholder="充值账号搜索" required
+                                   class="am-form-field">
+                            <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search"
+                    onclick="getOrders()"
                     type="button"></button>
           </span>
-                            </div>
                         </div>
+                    </div>
 
                 </div>
                 <div class="am-g">
-                    <div class="am-u-sm-12">
+                    <div class="am-u-sm-12 am-scrollable-horizontal">
 
-                        <table class="am-table am-table-striped am-table-hover table-main">
+                        <table class="am-table am-table-striped am-table-hover table-main" >
                             <thead>
                             <tr>
 
                                 <th class="table-id">订单id</th>
-                                <th class="table-title">订单名称</th>
-                                <th class="table-title">订单类型</th>
-                                <th class="table-type">充值数量</th>
-                                <th class="table-author">商品单价</th>
-                                <th class="table-author">订单总价</th>
-                                <th class="table-author">充值账号</th>
-                                <th class="table-author">支付方式</th>
-                                <th class="table-author">状态</th>
+                                <th class="table-oname">订单名称</th>
+                                <th class="table-otype">订单类型</th>
+                                <th class="table-onum">充值数量</th>
+                                <th class="table-omoney">商品单价</th>
+                                <th class="table-cmoney">订单总价</th>
+                                <th class="table-account">充值账号</th>
+                                <th class="table-paytype">支付方式</th>
+                                <th class="table-status">状态</th>
                                 <th class="table-date am-hide-sm-only">下单时间</th>
                                 <th class="table-set">操作</th>
                             </tr>
@@ -123,21 +124,22 @@
 
                             <tbody id="ordcont">
 
-                            <?php if($orderid):?>
+                            <?php if ($orderid): ?>
                                 <tr>
+
                                     <td><?php echo $orderid ?></td>
                                     <td><?php echo $oname ?></td>
                                     <td>
                                         <?php if ($otype == 0): ?>
-                                        <span class="am-badge am-badge-success am-radius">自动发卡</span>
+                                            <span class="am-badge am-badge-success am-radius">自动发卡</span>
                                         <?php else: ?>
                                             <span class="am-badge am-badge-warning am-radius">手工订单</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td class="am-hide-sm-only"><?php echo $onum ?></td>
-                                    <td class="am-hide-sm-only"><?php echo $omoney ?></td>
-                                    <td class="am-hide-sm-only"><?php echo $cmoney ?></td>
-                                    <td class="am-hide-sm-only"><?php echo $account ?></td>
+                                    <td><?php echo $onum ?></td>
+                                    <td><?php echo $omoney ?></td>
+                                    <td><?php echo $cmoney ?></td>
+                                    <td><?php echo $account ?></td>
                                     <td>
 
                                         <span class="am-badge am-badge-success am-radius"><?php echo $paytype ?></span>
@@ -154,22 +156,24 @@
                                     ?>
 
                                     <td> <?php echo $orderStatus[$status] ?></td>
-                                    <td class="am-hide-sm-only"><?php echo date('Y-m-d H:i',$ctime)  ?></td>
+                                    <td class="am-hide-sm-only"><?php echo date('Y-m-d H:i', $ctime) ?></td>
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <button onclick="orderInfo('<?php echo $orderid ?>')" class="am-btn am-btn-default "><span class="am-icon-eye"></span>订单详情
+                                                <button onclick="orderInfo('<?php echo $orderid ?>')" class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                                    <span class="am-icon-eye"></span>订单详情
                                                 </button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
 
-                            <?php endif;?>
+                            <?php endif; ?>
                             </tbody>
 
 
                         </table>
+
                         <div class="am-cf">
 
                             <div class="am-fr">

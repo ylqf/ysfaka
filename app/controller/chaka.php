@@ -53,10 +53,10 @@ class chaka extends Controller
                                 <td>
                                     <span class=\"am-badge am-badge-success am-radius\">" . $orderType[$v['otype']] . "</span>
                                 </td>
-                                <td class=\"am-hide-sm-only\">" . $v['onum'] . "</td>
-                                <td class=\"am-hide-sm-only\">" . $v['omoney'] . "</td>
-                                <td class=\"am-hide-sm-only\">" . $v['cmoney'] . "</td>
-                                <td class=\"am-hide-sm-only\">" . $v['account'] . "</td>
+                                <td>" . $v['onum'] . "</td>
+                                <td>" . $v['omoney'] . "</td>
+                                <td>" . $v['cmoney'] . "</td>
+                                <td>" . $v['account'] . "</td>
                                 <td>
 
                                     <span class=\"am-badge am-badge-success am-radius\">" . $v['paytype'] . "</span>
