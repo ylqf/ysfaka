@@ -112,6 +112,7 @@ class kami extends CheckAdmin
             if($v != ""){
                 $kamiList[$key]['kano'] = $v;
                 $kamiList[$key]['gid'] = $goods['id'];
+                $kamiList[$key]['ctime'] = time();
             }
         }
             //老版算法
@@ -137,6 +138,7 @@ class kami extends CheckAdmin
         foreach ($kamiList as $v){
             $sql.="('".$v['gid']."','".$v['kano']."',".$v['ctime']."),";
         }
+        echo $sql;
         $sql = trim($sql,',');
         $res = $this->model()->query($sql);
         if ($res) {
