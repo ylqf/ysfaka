@@ -85,7 +85,6 @@ class kami extends CheckAdmin
         $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($data['gid'])))->fetchRow();
         if (!$goods)$this->error('商品不存在');
         $kami = trim($data['kamicont']);
-        $ka_arr = explode("\r\n", $kami);
         $kamiList = [];
         if(!empty($_FILES['file']['tmp_name'])) {
             $upload = new \Dj\Upload();
