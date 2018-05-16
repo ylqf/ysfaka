@@ -1,0 +1,4 @@
+.idea/*
+app/Config.php
+app/db.php
+install/install.lock
