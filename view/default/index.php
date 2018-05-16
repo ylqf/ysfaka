@@ -44,58 +44,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat blue">
-                    <div class="visual">
-                        <i class="am-icon-comments-o"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> <?php echo $data['ctime'] ?>天</div>
-                        <div class="desc"> 本站已稳定运行</div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat red">
-                    <div class="visual">
-                        <i class="am-icon-bar-chart-o"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> <?php echo $data['ctOrder'] ?>笔</div>
-                        <div class="desc"> 总订单</div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat purple">
-                    <div class="visual">
-                        <i class="am-icon-thumbs-up"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> <?php echo $data['okOrder'] ?></div>
-                        <div class="desc"> 已处理成功的订单</div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
-                <div class="dashboard-stat green">
-                    <div class="visual">
-                        <i class="am-icon-money"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number"> <?php echo $data['ctMoney'] ?> ￥</div>
-                        <div class="desc"> 总流水</div>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
 
         <div class="row">
 
