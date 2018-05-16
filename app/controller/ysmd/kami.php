@@ -135,7 +135,7 @@ class kami extends CheckAdmin
         //拼接sql
         $sql = "INSERT INTO ".$config::db()['prefix']."kami(`gid`,`kano`,`ctime`) VALUES";
         foreach ($kamiList as $v){
-            $sql.="('".$v['gid']."','".$v['kano']."''".$v['ctime']."'),";
+            $sql.="('".$v['gid']."','".$v['kano']."','".$v['ctime']."'),";
         }
         $sql = trim($sql,',');
         $res = $this->model()->query($sql);
