@@ -133,9 +133,9 @@ class kami extends CheckAdmin
         if(!$kamiList)$this->error('导入失败，请检查卡密格式');
         $config = $this->setConfig;
         //拼接sql
-        $sql = "INSERT INTO ".$config::db()['prefix']."kami(`gid`,`kano`,`kapwd`,`ctime`) VALUES";
+        $sql = "INSERT INTO ".$config::db()['prefix']."kami(`gid`,`kano`,`ctime`) VALUES";
         foreach ($kamiList as $v){
-            $sql.="('".$v['gid']."','".$v['kano']."','".$v['kapwd']."','".$v['ctime']."'),";
+            $sql.="('".$v['gid']."','".$v['kano']."''".$v['ctime']."'),";
         }
         $sql = trim($sql,',');
         $res = $this->model()->query($sql);
