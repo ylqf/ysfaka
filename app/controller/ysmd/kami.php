@@ -54,6 +54,29 @@ class kami extends CheckAdmin
     }
 
     /**
+     * 导出卡密
+     */
+    public function import()
+    {
+        $gid = $this->req->get('gid');
+        $lists = $this->model()->select()->from('kami k')->where(array('fields' => 'gid = ? AND is_ste = 0', 'values' => [$gid]))->orderby('k.ctime desc')->fetchAll();
+        if(!$lists) exit('库存卡密数量为0');
+        $word = "";
+        $filename = date('Ymd').rand(100000,999999).".txt";
+        Header( "Content-type:   application/octet-stream ");
+        Header( "Accept-Ranges:   bytes ");
+        header( "Content-Disposition:   attachment;   filename=".$filename);
+        header( "Expires:   0 ");
+        header( "Cache-Control:   must-revalidate,   post-check=0,   pre-check=0 ");
+        header( "Pragma:   public ");
+        foreach ($lists as $li) {
+            echo $li['kano']."\r\n";
+        }
+        //file_put_contents('./upload/kamitxt/'.$filename, $word);
+
+    }
+
+    /**
      * 导入卡密
      */
     public function impka()
@@ -62,11 +85,38 @@ class kami extends CheckAdmin
         $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($data['gid'])))->fetchRow();
         if (!$goods)$this->error('商品不存在');
         $kami = trim($data['kamicont']);
-        if (!$kami) $this->error('请填写卡密');
         $ka_arr = explode("\r\n", $kami);
         $kamiList = [];
-            //格式化数据
+        if(!empty($_FILES['file']['tmp_name'])) {
+            $upload = new \Dj\Upload();
+            $upload->mime = [
+                'text/plain',
+            ];
+            $filelist = $upload->save('./upload/kamitxt');
+            if(is_array($filelist)){
+                $filedata = file_get_contents($filelist['url']);
+                // 删除文件
+                unlink($filelist['url']);
+            }else{
+                # 如果返回负整数(int)就是发生错误了
+                $error_msg = [-1=>'上传失败',-2=>'文件存储路径不合法',-3=>'上传非法格式文件',-4=>'文件大小不合符规定',-5=>'token验证错误'];
+                echo $error_msg[$filelist];
+            }
+            if($filedata){
+                $kami = $filedata;
+            }
+        }
+        if (!$kami) $this->error('请填写或上传卡密');
+        $ka_arr = explode("\r\n", $kami);
+        //新版算法
         foreach ($ka_arr as $key => $v) {
+            if($v != ""){
+                $kamiList[$key]['kano'] = $v;
+                $kamiList[$key]['gid'] = $goods['id'];
+            }
+        }
+            //老版算法
+        /*foreach ($ka_arr as $key => $v) {
             $kamiList[$key]['gid'] = $goods['id'];
             $kamiList[$key]['ctime'] = time();
             if (strstr($v, '----')) {
@@ -76,7 +126,7 @@ class kami extends CheckAdmin
             } else {
                 $kamiList[$key]['kano'] = $v;
             }
-        }
+        }*/
         //去重
         if($data['checkm'] == 1){
             $kamiList = array_unique($kamiList, SORT_REGULAR);
@@ -101,9 +151,21 @@ class kami extends CheckAdmin
         }
     }
 
-    public function del()
+    public function delall()
     {
-        $id = $this->req->get('id');
+        $ids = $this->req->post('ids');
+        $idsarr = explode(',',$ids);
+        foreach ($idsarr as $id)
+        {
+            $this->del($id);
+        }
+        echo json_encode(array('status' => 1));exit;
+
+    }
+
+    public function del($cid = "")
+    {
+        $id = $cid? $cid : $this->req->get('id');
         if ($id) {
             $kami = $this->model()->select()->from('kami')->where(array('fields' => 'id=?', 'values' => array($id)))->fetchRow();
             if ($this->model()->from('kami')->where(array('fields' => 'id = ?', 'values' => array($id)))->delete()) {
@@ -113,12 +175,16 @@ class kami extends CheckAdmin
                     $gdata['kuc'] = $goods['kuc'] - 1;
                     $this->model()->from('goods')->updateSet($gdata)->where(array('fields' => 'id = ?', 'values' => array($goods['id'])))->update();
                 }
-                echo json_encode(array('status' => 1));
-                exit;
+                if(!$cid){
+                    echo json_encode(array('status' => 1));
+                    exit;
+                }
             }
         }
-        echo json_encode(array('status' => 0));
-        exit;
+        if(!$cid) {
+            echo json_encode(array('status' => 0));
+            exit;
+        }
     }
 
 }

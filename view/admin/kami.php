@@ -46,19 +46,26 @@
                 </button>
             </form>
         </div>
+        <div class="panel-body">
+            <button onclick="checkOrder('<?php echo $this->dir?>kami/delall',9)" type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash">
+                    </span>
+                &nbsp;批量删除
+            </button>
+        </div>
     </div>
     <div class="set set0">
         <table class="table table-hover">
             <thead>
             <tr class="info">
+                <th>
+                    <input type="checkbox"  id="checkAll" class="checkbox">
+                </th>
                 <th class="text-center">
                     编号
                 </th>
                 <th>
                     商品名称
-                </th>
-                <th>
-                    卡号
                 </th>
                 <th>
                     卡密
@@ -78,6 +85,9 @@
             <?php if($lists):?>
                 <?php foreach($lists as $key=>$val):?>
                     <tr data-id="<?php echo $val['id']?>">
+                        <td>
+                            <input type="checkbox" name="checkname" value="<?php echo $val['id']?>" class="checkbox">
+                        </td>
                         <td class="text-center">
                             <?php echo $val[ 'id']?>
                         </td>
@@ -86,9 +96,6 @@
                         </td>
                         <td>
                             <?php echo $val[ 'kano']?>
-                        </td>
-                        <td>
-                            <?php echo $val[ 'kapwd']?>
                         </td>
                         <td>
                             <?php if ($val['is_ste'] == 0): ?>
@@ -128,7 +135,7 @@
 
 
         <form class="form-horizontal" action="<?php echo $this->dir ?>kami/impka"
-              method="post" autocomplete="off">
+              method="post" autocomplete="off" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="type" class="col-md-2 control-label">
@@ -160,10 +167,20 @@
                     <textarea name="kamicont" style="width:100%;height:300px;"></textarea>
                 </div>
                 <span class="col-md-6">
-                    格式：卡号----卡密 一行一条，如没有卡密则直接填卡号
+                    格式：卡号----卡密 或者卡号 一行一条
                 </span>
             </div>
-
+            <div class="form-group">
+                <label for="imptxt" class="col-md-2 control-label">
+                    导入txt：
+                </label>
+                <div class="col-md-3">
+                    <input type="file" name="file" id="imptxt" class="form-control">
+                </div>
+                <span class="col-md-6">
+                    格式：卡号----卡密 或者卡号 一行一条，请勿上传过大数据，最好不要超过2M
+                </span>
+            </div>
             <div class="form-group">
                 <label for="checkm" class="col-md-2 control-label">
                     过滤重复卡密：

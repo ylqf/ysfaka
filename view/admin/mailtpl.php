@@ -93,7 +93,7 @@
     </script>
     <div class="set set1 hide">
         <div class="alert alert-info">
-            &nbsp;网址url：{url}&nbsp;日期时间：{ctime}&nbsp;平台名称：{sitename}&nbsp; 订单号：{orid} 数量：{ornum} 充值详情 {orderinfo} 商品名 {gname}
+            &nbsp;网址url：{siteurl}&nbsp;日期时间：{ctime}&nbsp;平台名称：{sitename}&nbsp; 订单号：{orid} 数量：{ornum} 充值详情 {orderinfo} 商品名 {gname}
         </div>
         <form class="form-horizontal" action="<?php echo $this->dir?>mailtpl/save"
         method="post" autocomplete="off">

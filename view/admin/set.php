@@ -27,6 +27,10 @@
         <span>
             公告设置
         </span>
+        &nbsp;/&nbsp;
+        <span>
+            库存告警策略
+        </span>
 
     </h3>
     <br>
@@ -64,9 +68,6 @@
                 <div class="col-md-6">
                     <input type="text" name="siteurl" id="siteurl" class="form-control" value="<?php echo $this->config['siteurl']?>">
                 </div>
-                <span class="col-md-4">
-                    无需填写http://
-                </span>
             </div>
 
             <div class="form-group">
@@ -259,6 +260,67 @@
                 </div>
                 <span class="col-md-6">
                 </span>
+            </div>
+
+            <div class="form-group">
+                <label for="stacode" class="col-md-2 control-label">
+                </label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">
+                        &nbsp;
+                        <span class="glyphicon glyphicon-save">
+                        </span>
+                        &nbsp;保存设置&nbsp;
+                    </button>
+                </div>
+                <span class="col-md-6">
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="set set3 hide">
+        <form class="form-ajax form-horizontal" action="<?php echo $this->dir?>set/save"
+              method="post" autocomplete="off">
+
+            <div class="form-group">
+                <label for="ismail_num" class="col-md-2 control-label">
+                    告警阈值：
+                </label>
+                <div class="col-md-4">
+                    <input type="text" name="ismail_num" id="ismail_num" class="form-control"
+                           value="<?php echo $this->config['ismail_num']?>">
+                </div>
+                <span class="col-md-6">
+                    库存低于多少告警
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="serive_token" class="col-md-2 control-label">
+                    Token：
+                </label>
+                <div class="col-md-4">
+                    <input type="text" name="serive_token" id="ismail_num" class="form-control"
+                           value="<?php echo $this->config['serive_token']?>">
+                </div>
+                <span class="col-md-6">
+                    用于订单清理或库存告警定时任务通讯密钥
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="ismail_kuc" class="col-md-2 control-label">
+                    库存告警开关：
+                </label>
+                <div class="col-md-4">
+                    <select name="ismail_kuc" class="form-control">
+                        <option value="1" <?php echo $this->config['ismail_kuc']=='1' ? ' selected' : ''?>>已开启
+                        </option>
+                        <option value="0" <?php echo $this->config['ismail_kuc']=='0' ? ' selected' : ''?>>已关闭
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group">

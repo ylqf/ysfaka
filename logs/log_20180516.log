@@ -1,0 +1,325 @@
+/index.php
+/controller/view load fail.
+2018-05-16 20:41:24
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:41:24
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:41:26
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:41:26
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:37
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:37
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:44
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:44
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:46
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:54:46
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:55:58
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 20:55:58
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:07:19
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:07:19
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:07:24
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:07:24
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:08:58
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:08:58
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:00
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:01
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:04
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:04
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:38
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:09:38
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:11:13
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:11:16
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:13:42
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:13:44
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:17:12
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:17:23
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:17:37
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:18:30
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:18:52
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:19:01
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]22
+[class]YS\app\libs\Model
+2018-05-16 21:19:07
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:19:24
+127.0.0.1
+
+/index.php
+error in E:\wwwroot\gitfaka\app\libs\Db.php 77
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ctime' in 'order clause'
+select * from ys_goods  where is_ste = 1   ORDER BY ctime desc 
+[file]E:\wwwroot\gitfaka\app\controller\clean.php
+[line]21
+[class]YS\app\libs\Model
+2018-05-16 21:19:42
+127.0.0.1
+
+/index.php
+/controller/upload load fail.
+2018-05-16 21:20:03
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:20:55
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:20:55
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:20:57
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:20:57
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:06
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:06
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:07
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:07
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:11
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:11
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:12
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:12
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:16
+127.0.0.1
+
+/index.php
+/controller/view load fail.
+2018-05-16 21:21:16
+127.0.0.1
+
