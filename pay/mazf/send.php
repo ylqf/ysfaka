@@ -15,8 +15,8 @@ $data = array(
     "type" => $paycode,//1支付宝支付 3微信支付 2QQ钱包
     "price" => $order['cmoney'],//金额100元
     "param" => "",//自定义参数
-    "notify_url"=>$payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/paysapi/notify.php',//通知地址
-    "return_url"=> $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/paysapi/return.php',//跳转地址
+    "notify_url"=>$payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/mazf/notify.php',//通知地址
+    "return_url"=> $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/mazf/return.php',//跳转地址
 ); //构造需要传递的参数
 
 ksort($data); //重新排序$data数组
