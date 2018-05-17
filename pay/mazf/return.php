@@ -17,6 +17,7 @@ foreach ($data AS $key => $val) { //遍历POST参数
 if (!$data['pay_no'] || md5($sign . $codepay_key) != $data['sign']) { //不合法的数据
     exit('fail');  //返回失败 继续补单
 } else { //合法的数据
+    $payarr=[1=>'支付宝', 2=>'QQ钱包', 3=>'微信'];
     $res = $payDao->updateOrder($data['pay_id'],$payarr[$data['type']],$data['pay_no']);
     $payDao->res->redirect($payDao->urlbase . $payDao->req->server('HTTP_HOST') . '/chaka?oid=' .$data['pay_id']);
 }
