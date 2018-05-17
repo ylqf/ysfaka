@@ -18,7 +18,7 @@ if (!$_POST['pay_no'] || md5($sign . $codepay_key) != $_POST['sign']) { //不合
     exit('fail');  //返回失败 继续补单
 } else { //合法的数据
 
-    $payarr=[1=>'支付宝',3=>'微信'];
+    $payarr=[1=>'支付宝', 2=>'QQ钱包', 3=>'微信'];
     $res = $payDao->updateOrder($_POST['pay_id'],$payarr[$_POST['type']],$_POST['pay_no']);
 
     exit('success'); //返回成功 不要删除哦
