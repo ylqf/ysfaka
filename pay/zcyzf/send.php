@@ -7,14 +7,14 @@ $paycode = $payDao->req->get('paycode');
 //查询订单是否存在
 $order = $payDao->checkOrder($orderid);
 
-$payconf = $payDao->checkAcp('yszf');
+$payconf = $payDao->checkAcp('zcyzf');
 //组装支付参数
 $paydata = [
     'pid' => $payconf['userid'],
     'type' => $paycode,
     'out_trade_no' => $order['orderid'],
-    'notify_url'   => $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/yszf/notify.php',
-    'return_url'   => $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/yszf/return.php',
+    'notify_url'   => $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/zcyzf/notify.php',
+    'return_url'   => $payDao->urlbase.$_SERVER['HTTP_HOST'].'/pay/zcyzf/return.php',
     'name'   => $order['oname'],
     'money'  => $order['cmoney'],
     //'money'  => 0.01,

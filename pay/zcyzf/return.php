@@ -3,7 +3,7 @@ require_once '../inc.php';
 
 
 $data = $payDao->getReqdata($_GET);
-$payconf = $payDao->checkAcp('yszf');
+$payconf = $payDao->checkAcp('zcyzf');
 //除去待签名参数数组中的空值和签名参数
 $para_filter = paraFilter($data);
 //对待签名参数数组排序
