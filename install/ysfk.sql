@@ -168,8 +168,7 @@ DROP TABLE IF EXISTS `ys_kami`;
 CREATE TABLE `ys_kami` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `gid` int(100) NOT NULL COMMENT '商品id',
-  `kano` varchar(255) NOT NULL COMMENT '卡号',
-  `kapwd` varchar(255) DEFAULT NULL COMMENT '卡密',
+  `kano` text NOT NULL COMMENT '卡号',
   `is_ste` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:正常 1:已售',
   `ctime` int(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
