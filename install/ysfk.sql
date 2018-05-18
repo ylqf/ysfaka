@@ -174,22 +174,6 @@ CREATE TABLE `ys_kami` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=215 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of ys_kami
--- ----------------------------
-INSERT INTO `ys_kami` VALUES ('207', '18', '123321----123321', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('208', '18', '1111111111111', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('209', '18', '1222222222222----333---3333', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('210', '18', '1222222', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('211', '18', '123321----123321', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('212', '18', '1111111111111', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('213', '18', '1222222222222----333---3333', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('214', '18', '1222222', '', '0', '0');
-INSERT INTO `ys_kami` VALUES ('199', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('200', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('201', '18', '123233', '444444', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('202', '18', '123321', '123321', '0', '1523867081');
-INSERT INTO `ys_kami` VALUES ('203', '18', '123321', '123321', '0', '1523867081');
 
 -- ----------------------------
 -- Table structure for ys_mailtpl
