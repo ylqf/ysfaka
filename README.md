@@ -10,7 +10,7 @@
 * mysql >= 5.2
 * win or linux
 
-### demo地址：[http://demo.yunscx.com](http://demo.yunscx.com/)
+### demo地址：[http://demo.yunscx.com](http://demo.szfaka.cc/)
 
 ### 更多详细内容及配置教程请访问：
 ## [程序详情](http://www.szfaka.cc/cms/a/ysfaka.html)
