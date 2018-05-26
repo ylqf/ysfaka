@@ -34,7 +34,7 @@ CREATE TABLE `ys_acp` (
 -- ----------------------------
 -- Records of ys_acp
 -- ----------------------------
-INSERT INTO `ys_acp` VALUES ('37', 'yszf', '云尚云支付', '', '', '', '0');
+INSERT INTO `ys_acp` VALUES ('37', 'zcyzf', '众创益支付', '', '', '', '0');
 INSERT INTO `ys_acp` VALUES ('38', 'zfbf2f', '支付宝当面付', '', '', '', '1');
 INSERT INTO `ys_acp` VALUES ('39', 'paysapi', 'PaysApi支付', '', '', '', '0');
 INSERT INTO `ys_acp` VALUES ('40', 'alipay', '支付宝即时到账', '', '', '', '0');
