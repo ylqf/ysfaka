@@ -376,7 +376,7 @@ try {
         <div class="amount">￥<?php echo $order['cmoney']; ?></div>
         <div class="qr-image" id="" title="">
             <canvas width="230" height="230" style="display: none;"></canvas>
-            <img src="http://bshare.optimix.asia/barCode?site=weixin&url=<?php echo $str; ?>" title="请使用支付宝“扫一扫”" style=""></div>
+            <img src="http://qr.liantu.com/api.php?text=<?php echo $str; ?>" title="请使用支付宝“扫一扫”" style=""></div>
 
         <div class="detail" id="orderDetail">
             <dl class="detail-ct" style="display: block;" >
