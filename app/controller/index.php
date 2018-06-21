@@ -32,7 +32,7 @@ class index extends Controller
     public function typegd()
     {
         $data = $this->getReqdata($_POST) ? $this->getReqdata($_POST) : 0;//分类id
-        $lists = $this->model()->select()->from('goods')->where(array('fields' => 'cid=? ', 'values' => array($data['cid'])))->orderby('ord desc')->fetchAll();
+        $lists = $this->model()->select()->from('goods')->where(array('fields' => 'cid=? and is_ste = 1', 'values' => array($data['cid'])))->orderby('ord desc')->fetchAll();
         $html = "";
         if ($lists) {
             foreach ($lists as $v) {
@@ -48,7 +48,7 @@ class index extends Controller
     public function getGoodsInfo()
     {
         $id = $this->req->post('id');
-        $data = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($id)))->fetchRow();
+        $data = $this->model()->select()->from('goods')->where(array('fields' => 'id=? and is_ste = 1', 'values' => array($id)))->fetchRow();
         if (!$data) resMsg(0);
         //判断是否是自动发卡
         if ($data['type'] == 0) {
