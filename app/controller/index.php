@@ -152,22 +152,8 @@ class index extends Controller
         if($payset){
             foreach ($payset as $v){
                 switch ($v['code']){
-                    case 'zcyzf':
-                        $html.= " <a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=wxpay&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信支付</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=qqpay&paycode=".$v['code']."\" class=\"am-btn am-btn-default am-round am-icon-qq\">QQ支付</a>";
-                        break;
                     case 'zfbf2f':
                         $html.= "<a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝当面付</a>";
-                        break;
-                    case 'paysapi':
-                        $html.= "<a  href=\"/pay/index?id=".$orderid."&type=1&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝扫码</a>
-                    <a target='_blank' href=\"/pay/index?id=".$orderid."&type=2&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信扫码</a>";
-                        break;
-                    case 'mazf':
-                        $html.= " <a  href=\"/pay/index?id=".$orderid."&type=1&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=3&paycode=".$v['code']."\" class=\"am-btn am-btn-success am-round am-icon-wechat\">微信支付</a>
-                    <a  href=\"/pay/index?id=".$orderid."&type=2&paycode=".$v['code']."\" class=\"am-btn am-btn-default am-round am-icon-qq\">QQ支付</a>";
                         break;
                     case 'alipay':
                         $html.= "<a  href=\"/pay/index?id=".$orderid."&type=alipay&paycode=".$v['code']."\" class=\"am-btn am-btn-warning am-round am-icon-credit-card-alt\">支付宝即时到账</a>";
