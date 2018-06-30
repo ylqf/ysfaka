@@ -103,11 +103,9 @@ class index extends Controller
     public function postOrder()
     {
         $post = $this->getReqdata($_POST);
+        $post['number'] = intval($post['number']);
         if($post['gid'] =="" || intval($post['number']) <=0 || $post['account'] == ""){
             resMsg(0,null,'充值账号、数量、商品不能为空，请仔细填写');
-        }
-        if(!is_numeric($post['number'])){
-            resMsg(0,null,'商品数量请填写整数!');
         }
         $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($post['gid'])))->fetchRow();
         if(!$goods || $goods['is_ste'] == 0) resMsg(0,null,'商品不存在或已下架');
