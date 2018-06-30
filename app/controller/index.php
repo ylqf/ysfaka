@@ -106,7 +106,7 @@ class index extends Controller
         if($post['gid'] =="" || intval($post['number']) <=0 || $post['account'] == ""){
             resMsg(0,null,'充值账号、数量、商品不能为空，请仔细填写');
         }
-        if(!is_int($post['number'])){
+        if(!is_numeric($post['number'])){
             resMsg(0,null,'商品数量请填写整数!');
         }
         $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($post['gid'])))->fetchRow();
