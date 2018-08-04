@@ -3,6 +3,7 @@
 namespace YS\app\controller;
 
 use YS\app\libs\Controller;
+use Endroid\QrCode\QrCode;
 
 /**首页控制器
  * Class index
@@ -241,6 +242,16 @@ class index extends Controller
         }
         resMsg(0,null,'下单失败！');
 
+    }
+    /**
+     * 生产二维码
+     */
+    public function qrcode()
+    {
+        $url = $this->req->get('url') ? $this->req->get('url') : 'http://phpke.cn';
+        $qrCode = new QrCode($url);
+        header('Content-Type: '.$qrCode->getContentType());
+        echo $qrCode->writeString();
     }
 
 }

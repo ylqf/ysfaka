@@ -86,7 +86,7 @@ if (!$errInfo && isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD']
     $adminPassword = isset($_POST['adminPassword']) ? $_POST['adminPassword'] : '123456';
     $adminPasswordConfirmation = isset($_POST['adminPasswordConfirmation']) ? $_POST['adminPasswordConfirmation'] : '123456';
     $adminEmail = isset($_POST['adminEmail']) ? $_POST['adminEmail'] : 'admin@admin.com';
-
+  
     if ($adminPassword !== $adminPasswordConfirmation)
     {
         echo "两次输入的密码不一致";

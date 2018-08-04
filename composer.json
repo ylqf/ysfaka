@@ -1,6 +1,7 @@
 {
     "require": {
         "riverslei/payment": "*",
-        "aileshe/upload": "*"
+        "aileshe/upload": "*",
+        "endroid/qr-code": "^2.5"
     }
 }
