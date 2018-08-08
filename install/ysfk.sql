@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : 127.0.0.1
 Source Server Version : 50553
 Source Host           : localhost:3306
-Source Database       : testfk
+Source Database       : faka
 
 Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-04-19 17:39:49
+Date: 2018-05-21 22:18:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,15 +29,13 @@ CREATE TABLE `ys_acp` (
   `is_ste` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否启用 1是 0否',
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_acp
 -- ----------------------------
-INSERT INTO `ys_acp` VALUES ('37', 'blpay', 'bl云支付', '', '', '', '0');
 INSERT INTO `ys_acp` VALUES ('38', 'zfbf2f', '支付宝当面付', '', '', '', '1');
-INSERT INTO `ys_acp` VALUES ('39', 'paysapi', 'PaysApi支付', '', '', '', '0');
-INSERT INTO `ys_acp` VALUES ('40', 'alipay', '支付宝即时到账', '', '', '', '1');
+INSERT INTO `ys_acp` VALUES ('40', 'alipay', '支付宝即时到账', '', '', '', '0');
 
 -- ----------------------------
 -- Table structure for ys_admin
@@ -71,7 +69,7 @@ CREATE TABLE `ys_adminlogs` (
   `ip` varchar(16) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `adminid` (`adminid`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_adminlogs
@@ -100,13 +98,16 @@ CREATE TABLE `ys_config` (
   `tips` text,
   `ctime` varchar(100) DEFAULT NULL,
   `email_state` tinyint(1) NOT NULL DEFAULT '0',
+  `ismail_kuc` tinyint(1) NOT NULL DEFAULT '0',
+  `ismail_num` int(20) DEFAULT '0',
+  `serive_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_config
 -- ----------------------------
-INSERT INTO `ys_config` VALUES ('1', '云尚发卡系统', 'faka.com', '云尚发卡系统 安全稳定', '云尚发卡系统 安全稳定', '云尚发卡系统 安全稳定', '53331323@qq.com', '400-000-0000', '53331323', '云尚创想科技', '沪ICP备13008591号', '', '', '', '', '<h2>\r\n	<ul class=\"tpl-task-list tpl-task-remind\" style=\"box-sizing:border-box;margin:0px;padding:0px;list-style:none;color:#333333;font-family:&quot;font-size:18px;white-space:normal;background-color:#FFFFFF;\">\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco\" style=\"box-sizing:border-box;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;background-color:#36C6D3;\"><span class=\"am-icon-bell-o\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;<span style=\"box-sizing:border-box;\">注意：本站为云尚发卡系统演示站，商品数据只做测试使用！</span>\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-danger\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-bolt\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;云尚发卡系统免授权使用，切勿上当受骗，系统开源没有任何加密！\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-info\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-bullhorn\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;防止不法分子在源码中加入后门请到云尚官网下载正版程序！\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;background:#F4F6F9;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-warning\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-plus\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;软件官网：<a href=\"http://www.yunscx.com\" target=\"_blank\">http://www.yunscx.com</a>&nbsp; &nbsp; 交流QQ群 ：<a target=\"_blank\" href=\"//shang.qq.com/wpa/qunwpa?idkey=633fb72ae5064407d2af35f9bc0502629ccd3d9cd5b64ea51a424b1276f0cb9b\"><img border=\"0\" src=\"//pub.idqqimg.com/wpa/images/group.png\" alt=\"云尚软件交流群\" title=\"云尚软件交流群\"></a>\r\n			</div>\r\n		</li>\r\n	</ul>\r\n</h2>', '2017-03-21', '0');
+INSERT INTO `ys_config` VALUES ('1', '云尚发卡系统', 'phpke.cn', '云尚发卡系统 安全稳定', '云尚发卡系统 安全稳定', '云尚发卡系统 安全稳定', '53331323@qq.com', '400-000-0000', '53331323', '云尚创想科技', '沪ICP备13008591号', '', '', '', '', '<h2>\r\n	<ul class=\"tpl-task-list tpl-task-remind\" style=\"box-sizing:border-box;margin:0px;padding:0px;list-style:none;color:#333333;font-family:&quot;font-size:18px;white-space:normal;background-color:#FFFFFF;\">\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco\" style=\"box-sizing:border-box;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;background-color:#36C6D3;\"><span class=\"am-icon-bell-o\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;<span style=\"box-sizing:border-box;\">注意：本站为云尚发卡系统演示站，商品数据只做测试使用！</span>\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-danger\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-bolt\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;云尚发卡系统免授权使用，切勿上当受骗，系统开源没有任何加密！\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-info\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-bullhorn\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;防止不法分子在源码中加入后门请到云尚官网下载正版程序！\r\n			</div>\r\n		</li>\r\n		<li style=\"box-sizing:border-box;margin:0px 0px 7px;padding:10px !important;list-style:none;position:relative;border-bottom:1px solid #F4F6F9;height:auto !important;font-size:14px !important;line-height:22px !important;color:#82949A;background:#F4F6F9;\">\r\n			<div class=\"cosA\" style=\"box-sizing:border-box;margin-right:80px;\">\r\n				<span class=\"cosIco label-warning\" style=\"box-sizing:border-box;background-color:#36C6D3;display:inline-block;width:24px;height:24px;vertical-align:middle;color:#FFFFFF;text-align:center;border-radius:3px;\"><span class=\"am-icon-plus\" style=\"box-sizing:border-box;display:inline-block;\"></span></span>&nbsp;软件官网：<a href=\"http://www.phpke.cn\" target=\"_blank\">http://www.phpke.cn</a>&nbsp; &nbsp; 交流QQ群 ：<a target=\"_blank\" href=\"//shang.qq.com/wpa/qunwpa?idkey=633fb72ae5064407d2af35f9bc0502629ccd3d9cd5b64ea51a424b1276f0cb9b\"><img border=\"0\" src=\"//pub.idqqimg.com/wpa/images/group.png\" alt=\"云尚软件交流群\" title=\"云尚软件交流群\"></a>\r\n			</div>\r\n		</li>\r\n	</ul>\r\n</h2>', '2017-03-21', '0', '0', '10', 'yunsfk2018');
 
 -- ----------------------------
 -- Table structure for ys_gdclass
@@ -117,13 +118,11 @@ CREATE TABLE `ys_gdclass` (
   `title` varchar(255) NOT NULL COMMENT '分类名称',
   `ord` int(100) DEFAULT '0' COMMENT '商品排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_gdclass
 -- ----------------------------
-INSERT INTO `ys_gdclass` VALUES ('7', '测试手工商品分类', '0');
-INSERT INTO `ys_gdclass` VALUES ('6', '测试自动发卡商品分类', '1');
 
 -- ----------------------------
 -- Table structure for ys_goods
@@ -143,7 +142,7 @@ CREATE TABLE `ys_goods` (
   `is_ste` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0下架 1上架',
   `kuc` int(100) NOT NULL DEFAULT '0' COMMENT '库存',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_goods
@@ -156,12 +155,11 @@ DROP TABLE IF EXISTS `ys_kami`;
 CREATE TABLE `ys_kami` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `gid` int(100) NOT NULL COMMENT '商品id',
-  `kano` varchar(255) NOT NULL COMMENT '卡号',
-  `kapwd` varchar(255) DEFAULT NULL COMMENT '卡密',
+  `kano` text NOT NULL COMMENT '卡号',
   `is_ste` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:正常 1:已售',
   `ctime` int(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=223 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_kami
@@ -180,13 +178,14 @@ CREATE TABLE `ys_mailtpl` (
   `addtime` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cname` (`cname`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_mailtpl
 -- ----------------------------
-INSERT INTO `ys_mailtpl` VALUES ('3', '卡密发送', '您在{sitename}购买的商品已发货', '<p class=\"p1\">\r\n<span class=\"s1\">尊敬的用户您好：</span> \r\n</p>\r\n<p class=\"p1\">\r\n<span class=\"s1\">您在：【{sitename}】 购买的商品：{gname} 已发货。</span> \r\n</p>\r\n<p class=\"p1\">订单号：{orid}</p>\r\n<p class=\"p1\">数量：{ornum}</p>\r\n<p class=\"p1\">金额：{cmoney}</p>\r\n<p class=\"p1\">时间：{ctime}</p>\r\n---------------------------------------------------------------------------------------------------------------------------<br/>\r\n<p class=\"p1\"> \r\n<span class=\"s1\">{orderinfo}</span>\r\n</p> \r\n---------------------------------------------------------------------------------------------------------------------------<br/>\r\n\r\n感谢您的惠顾，祝您生活愉快！<br/>\r\n<p class=\"p1\">\r\n	<span class=\"s1\">来自 <span style=\"white-space:normal;\">{sitename} -{url}</span></span> \r\n</p>', '0', '1523789794');
-INSERT INTO `ys_mailtpl` VALUES ('5', '管理员通知', '【{sitename}】新订单等待处理', '<p class=\"p1\">尊敬的管理员：</p>\r\n\r\n<p class=\"p1\">客户购买的商品：【{gname}】 已支付成功，请及时处理。</p>\r\n------------------------------------------<br/>\r\n<p class=\"p1\">订单号：{orid}</p>\r\n<p class=\"p1\">数量：{ornum}</p>\r\n<p class=\"p1\">金额：{cmoney}</p>\r\n<p class=\"p1\">时间：{ctime}</p>\r\n---------------------------------------------<br/>\r\n\r\n<p class=\"p1\">\r\n	<span class=\"s1\">来自 <span style=\"white-space:normal;\">{sitename} -{url}</span></span> \r\n</p>', '0', '1523790269');
+INSERT INTO `ys_mailtpl` VALUES ('3', '卡密发送', '您在{sitename}购买的商品已发货', '<p class=\"p1\">\r\n<span class=\"s1\">尊敬的用户您好：</span> \r\n</p>\r\n<p class=\"p1\">\r\n<span class=\"s1\">您在：【{sitename}】 购买的商品：{gname} 已发货。</span> \r\n</p>\r\n<p class=\"p1\">订单号：{orid}</p>\r\n<p class=\"p1\">数量：{ornum}</p>\r\n<p class=\"p1\">金额：{cmoney}</p>\r\n<p class=\"p1\">时间：{ctime}</p>\r\n---------------------------------------------------------------------------------------------------------------------------<br/>\r\n<p class=\"p1\"> \r\n<span class=\"s1\">{orderinfo}</span>\r\n</p> \r\n---------------------------------------------------------------------------------------------------------------------------<br/>\r\n\r\n感谢您的惠顾，祝您生活愉快！<br/>\r\n<p class=\"p1\">\r\n	<span class=\"s1\">来自 <span style=\"white-space:normal;\">{sitename} -{siteurl}</span></span> \r\n</p>', '0', '1523789794');
+INSERT INTO `ys_mailtpl` VALUES ('5', '管理员通知', '【{sitename}】新订单等待处理', '<p class=\"p1\">尊敬的管理员：</p>\r\n\r\n<p class=\"p1\">客户购买的商品：【{gname}】 已支付成功，请及时处理。</p>\r\n------------------------------------------<br/>\r\n<p class=\"p1\">订单号：{orid}</p>\r\n<p class=\"p1\">数量：{ornum}</p>\r\n<p class=\"p1\">金额：{cmoney}</p>\r\n<p class=\"p1\">时间：{ctime}</p>\r\n---------------------------------------------<br/>\r\n\r\n<p class=\"p1\">\r\n	<span class=\"s1\">来自 <span style=\"white-space:normal;\">{sitename} -{siteurl}</span></span> \r\n</p>', '0', '1523790269');
+INSERT INTO `ys_mailtpl` VALUES ('6', '库存告警', '【{sitename}】库存告警', '<p class=\"p1\">尊敬的管理员：</p>\r\n\r\n<p class=\"p1\">平台商品：【{gname}】库存低于{ornum}，请及时补货。</p>\r\n\r\n<p class=\"p1\">\r\n	<span class=\"s1\">来自 <span style=\"white-space:normal;\">{sitename} -{siteurl}</span></span> \r\n</p>', '0', '1526475356');
 
 -- ----------------------------
 -- Table structure for ys_navcog
@@ -224,7 +223,7 @@ CREATE TABLE `ys_orders` (
   `ctime` int(100) NOT NULL COMMENT '下单日期',
   `status` tinyint(1) NOT NULL COMMENT '0待付款 1待处理 2已处理 3已完成  4处理失败 5发卡失败',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=237 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=765 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ys_orders

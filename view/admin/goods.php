@@ -99,6 +99,9 @@
                     允许重复下单
                 </th>
                 <th>
+                    已卖出
+                </th>
+                <th>
                     库存
                 </th>
                 <th>
@@ -143,7 +146,14 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <?php echo $val['kuc'] ?>
+                            已卖(<a href="<?php echo $this->dir ?>orders?gid=<?php echo $val['id'] ?>" style="color: red"><?php echo $val['is_ym']?$val['is_ym']:0 ?></a>)
+                        </td>
+                        <td>
+                            <?php if ($val['type'] == 0): ?>
+                            库存(<a href="<?php echo $this->dir ?>kami?gid=<?php echo $val['id'] ?>&is_ste=0" style="color: green"><?php echo $val['kuc'] ?></a>)张
+                            <?php else: ?>
+                                <?php echo $val['kuc'] ?>
+                            <?php endif; ?>
                         </td>
 
                         <td>
@@ -176,6 +186,13 @@
                                     <span class="glyphicon glyphicon-credit-card">
                                     </span>
                                 </a>
+                                &nbsp;&nbsp;
+                                <a href="<?php echo $this->dir ?>kami/import?gid=<?php echo $val['id'] ?>&is_ste=0"
+                                   data-toggle="tooltip" title="导出库存卡密">
+                                    <span class="glyphicon glyphicon-import">
+                                    </span>
+                                </a>
+
                             <?php endif; ?>
                         </td>
                     </tr>

@@ -10,13 +10,13 @@ class Config{
 	static function systemInfo()
 	{
 		return [
-			'version' => 'v1.3.bate',
+			'version' => 'v1.5',
 		];
 	}
 
     public function getMailTpl(){
         return array(
-            '卡密发送','管理员通知'
+            '卡密发送','管理员通知','库存告警'
         );
     }
 

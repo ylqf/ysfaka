@@ -46,6 +46,12 @@ class goods extends CheckAdmin
             $offset = ($page - 1) * $pagesize;
             $lists = $this->model()->select('g.*,c.title')->from('goods g')->limit($pagesize)->left('gdclass c')->on('c.id=g.cid')->join()->offset($offset)->where(array('fields' => $cons, 'values' => $consArr))->orderby('g.ord desc')->fetchAll();
         }
+        //查询出已卖
+        foreach ($lists as &$li) {
+
+            $li['is_ym'] = $this->model()->from('orders')->where(array('fields' => 'gid = ? and status = 3', 'values' => [$li['id']]))->count();
+
+        }
         $pagelist = $this->page->put(array('page' => $page, 'pagesize' => $pagesize, 'totalsize' => $totalsize, 'url' => '?cid='.$cid.'&is_ste='.$is_ste.'&type='.$type.'&gname='.$gname.'&p='));
         $class = $this->model()->select()->from('gdclass')->fetchAll();
         $search =[

@@ -26,7 +26,7 @@ $data = [
     'order_no' => $order['orderid'],     //商户订单号，需要保证唯一
     'amount' => $order['cmoney'],           //订单金额，单位 元
     'subject' => $order['oname'],      //订单标题
-    'body' => '当面付',      //订单标题
+    'body' => 'zfbf2f',      //订单标题
 ];
 try {
     $str = Charge::run(Config::ALI_CHANNEL_QR, $config, $data);
@@ -376,7 +376,7 @@ try {
         <div class="amount">￥<?php echo $order['cmoney']; ?></div>
         <div class="qr-image" id="" title="">
             <canvas width="230" height="230" style="display: none;"></canvas>
-            <img src="http://pan.baidu.com/share/qrcode?w=300&h=300&url=<?php echo $str; ?>" title="请使用支付宝“扫一扫”" style=""></div>
+            <img src="/index/qrcode?url=<?php echo $str; ?>" title="请使用支付宝“扫一扫”" style=""></div>
 
         <div class="detail" id="orderDetail">
             <dl class="detail-ct" style="display: block;" >

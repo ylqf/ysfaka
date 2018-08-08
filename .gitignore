@@ -1,0 +1,5 @@
+.idea/*
+install/install.lock
+logs/*
+app/db.php
+/nbproject/private/

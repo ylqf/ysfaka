@@ -19,11 +19,12 @@ class acp extends CheckAdmin
         $email = $this->req->post('email');
         $userid = $this->req->post('userid');
         $userkey = $this->req->post('userkey');
+        $is_ste = $this->req->post('is_ste');
         if ($name == '' || $code == '' || $userid == '' || $userkey == '') {
             echo json_encode(array('status' => 0, 'msg' => '选项填写不完整'));
             exit;
         }
-        $data = array('name' => $name, 'code' => $code, 'email' => $email, 'userid' => $userid, 'userkey' => $userkey);
+        $data = array('name' => $name, 'code' => $code, 'email' => $email, 'userid' => $userid, 'userkey' => $userkey, 'is_ste' => $is_ste);
         if ($this->model()->from('acp')->insertData($data)->insert()) {
             echo json_encode(array('status' => 1, 'msg' => '设置保存成功', 'url' => $this->dir . 'acp'));
             exit;

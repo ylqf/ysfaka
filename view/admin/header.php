@@ -13,7 +13,7 @@
             <link href="/static/common/bootstrap.min.css" type="text/css" rel="stylesheet">
             <link href="/static/admin/app.css" type="text/css" rel="stylesheet">
             <link href="/static/common/datetimepicker.min.css" type="text/css" rel="stylesheet">
-            <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+            <script src="/static/admin/jquery.min.js"></script>
             <script src="/static/common/bootstrap.min.js" type="text/javascript">
             </script>
             <script src="/static/common/jquery.zclip.min.js" type="text/javascript">

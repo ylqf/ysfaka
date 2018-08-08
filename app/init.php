@@ -1,7 +1,7 @@
 <?php
 
 error_reporting(0);
-ini_set('display_errors','off');
+//ini_set('display_errors','off');
 
 define('YS_ROOT',dirname(__FILE__));
 ob_start();header('Content-Type:text/html;charset=utf8');

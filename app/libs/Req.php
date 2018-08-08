@@ -81,6 +81,8 @@ class Req
             }
             return $val;
         }
+        // 增强xss防御
+        $val = remove_xss($val);
         return $val;
     }
 }

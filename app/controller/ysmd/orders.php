@@ -19,6 +19,7 @@ class orders extends CheckAdmin
             die;
         }
         $oid = $this->req->get('oid') ;
+        $gid = $this->req->get('gid') ;
         $otype = isset($_GET['otype']) ? $this->req->get('otype') : -1 ;
         $status = isset($_GET['status']) ? $this->req->get('status') : -1 ;
         $cons = '';
@@ -39,6 +40,11 @@ class orders extends CheckAdmin
             $cons.= 'o.orderid = ?';
             $consArr[] = $oid;
         }
+        if($gid != ""){
+            $cons .= $cons ? ' and ' : '';
+            $cons.= 'o.gid = ?';
+            $consArr[] = $gid;
+        }
         $lists = [];
         $page = $this->req->get('p');
         $page = $page ? $page : 1;
@@ -50,7 +56,7 @@ class orders extends CheckAdmin
             $offset = ($page - 1) * $pagesize;
             $lists = $this->model()->select('o.*,g.gname')->from('orders o')->limit($pagesize)->left('goods g')->on('o.gid=g.id')->join()->offset($offset)->where(array('fields' => $cons, 'values' => $consArr))->orderby('o.ctime desc')->fetchAll();
         }
-        $pagelist = $this->page->put(array('page' => $page, 'pagesize' => $pagesize, 'totalsize' => $totalsize, 'url' => '?oid='.$oid.'&otype='.$otype.'&status='.$status.'&p='));
+        $pagelist = $this->page->put(array('page' => $page, 'pagesize' => $pagesize, 'totalsize' => $totalsize, 'url' => '?oid='.$oid.'&otype='.$otype.'&status='.$status.'&gid='.$gid.'&p='));
 
         $search =[
             'oid' => $oid,

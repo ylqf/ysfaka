@@ -34,7 +34,7 @@ class PayBase extends Controller
 
     public function updateOrder($orderid,$type,$paysid)
     {
-        $order = $this->checkOrder($orderid);
+        $order = $this->checkOrder($orderid,2);
         if($order['status'] > 0) return true;
         $data['status'] = 1;
         $data['payid'] = $paysid;
@@ -52,12 +52,7 @@ class PayBase extends Controller
                 $data['status'] = 3;
                 foreach ($kami as $v){
                     $ids.= $v['id'].',';
-                    $info .= '卡号： '.$v['kano'];
-                    if($v['kapwd']){
-                        $info.=' ---- 卡密： '.$v['kapwd']."<br/>";
-                    }else{
-                        $info.=' ---- 卡密： 无需卡密！<br/>';
-                    }
+                    $info .= $v['kano']."<br/>";
                 }
                 $data['info'] = $info;
                 //设置卡密过期
@@ -67,7 +62,7 @@ class PayBase extends Controller
                 $res = $this->model()->query($sql);
                 //减去库存
                 $goods = $this->model()->select()->from('goods')->where(array('fields' => 'id=?', 'values' => array($order['gid'])))->fetchRow();
-                $gdata['kuc'] = $goods['kuc']-$order['onum'];
+                $gdata['kuc'] = ($goods['kuc'] - $order['onum']);
                 $this->model()->from('goods')->updateSet($gdata)->where(array('fields' => 'id = ?', 'values' => array($goods['id'])))->update();
 
             }
@@ -103,7 +98,7 @@ class PayBase extends Controller
                 'cmoney' => $order['cmoney'],
                 'ctime' => date('Y-m-d H:i',$order['ctime']),
                 'orderinfo' => $info,
-                'url' => $this->config['siteurl']
+                'siteurl' => $this->config['siteurl']
             ];
             $newData = $this->res->replaceMailTpl($mailtpl, $mdata);
             $subject = array('title' => $newData['title'], 'email' => $email, 'content' => $newData['content']);
@@ -117,7 +112,7 @@ class PayBase extends Controller
                 'ornum' => $order['onum'],
                 'cmoney' => $order['cmoney'],
                 'ctime' => date('Y-m-d H:i',$order['ctime']),
-                'url' => $this->config['siteurl']
+                'siteurl' => $this->config['siteurl']
             ];
             $newData = $this->res->replaceMailTpl($mailtpl, $mdata);
             $subject = array('title' => $newData['title'], 'email' => $this->config['email'], 'content' => $newData['content']);

@@ -18,6 +18,7 @@ $config = [
     'ali_public_key' => $payconf['userid'],
     'rsa_private_key' => $payconf['userkey'],
     'notify_url' => $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/pay/zfbf2f/notify.php',                      //异步通知地址
+    'return_url' =>  $payDao->urlbase . $_SERVER['HTTP_HOST'] . '/chaka?oid='.$order['orderid'],
     'return_raw' => true
 ];
 
@@ -25,7 +26,7 @@ $data = [
     'order_no' => $order['orderid'],     //商户订单号，需要保证唯一
     'amount' => $order['cmoney'],           //订单金额，单位 元
     'subject' => $order['oname'],      //订单标题
-    'body' => '支付宝及时到账',      //订单标题
+    'body' => 'alipay',      //订单标题
 ];
 try {
     $str = Charge::run(Config::ALI_CHANNEL_WEB, $config, $data);
